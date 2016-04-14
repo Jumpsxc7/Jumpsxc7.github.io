@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android全屏设置的两种方式 | Jumpboy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一种方式：&amp;#160; &amp;#160; &amp;#160; &amp;#160;在protected void onCreate(Bundle savedInstanceState) 里面的this.setContentView() 之前加入以下代码
-12345//取消标题                this.requestWindowFeature(Window.FEATURE_NO_TITLE);">
+  <meta name="description" content="第一种方式：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android全屏设置的两种方式">
 <meta property="og:url" content="http://jumpsxc7.github.io/2016/03/06/Android全屏设置的两种方式/index.html">
 <meta property="og:site_name" content="Jumpboy">
-<meta property="og:description" content="第一种方式：&amp;#160; &amp;#160; &amp;#160; &amp;#160;在protected void onCreate(Bundle savedInstanceState) 里面的this.setContentView() 之前加入以下代码
-12345//取消标题                this.requestWindowFeature(Window.FEATURE_NO_TITLE);">
-<meta property="og:updated_time" content="2016-04-14T13:20:28.890Z">
+<meta property="og:description" content="第一种方式：">
+<meta property="og:updated_time" content="2016-04-14T13:22:40.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android全屏设置的两种方式">
-<meta name="twitter:description" content="第一种方式：&amp;#160; &amp;#160; &amp;#160; &amp;#160;在protected void onCreate(Bundle savedInstanceState) 里面的this.setContentView() 之前加入以下代码
-12345//取消标题                this.requestWindowFeature(Window.FEATURE_NO_TITLE);">
+<meta name="twitter:description" content="第一种方式：">
   
     <link rel="alternative" href="/atom.xml" title="Jumpboy" type="application/atom+xml">
   
@@ -124,7 +121,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android入门/" style="font-size: 10px;">Android入门</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a>
+						<a href="/tags/Android入门/" style="font-size: 20px;">Android入门</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
 					</div>
 				</section>
 				
@@ -259,8 +256,8 @@
 	  
 	  
 	  
-        <a id="more"></a>
-<h2 id="第一种方式："><a href="#第一种方式：" class="headerlink" title="第一种方式："></a><font color="#4169E1">第一种方式：</font></h2><p>&#160; &#160; &#160; &#160;在protected void onCreate(Bundle savedInstanceState) 里面的this.setContentView() 之前加入以下代码</p>
+        <h2 id="第一种方式："><a href="#第一种方式：" class="headerlink" title="第一种方式："></a><font color="#4169E1">第一种方式：</font></h2><a id="more"></a>
+<p>&#160; &#160; &#160; &#160;在protected void onCreate(Bundle savedInstanceState) 里面的this.setContentView() 之前加入以下代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//取消标题</span><br><span class="line">                this.requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">                //取消状态栏</span><br><span class="line">                this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,</span><br><span class="line">                                WindowManager.LayoutParams.FLAG_FULLSCREEN);</span><br></pre></td></tr></table></figure>
 <h2 id="第二种方式："><a href="#第二种方式：" class="headerlink" title="第二种方式："></a><font color="#4169E1">第二种方式：</font></h2><p>&#160; &#160; &#160; &#160;1、在res/values 目录创建个theme.xml 文件(这个文件注主要用来放样式的)，文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;   </span><br><span class="line">        &lt;!-- name 是Style的名称，parent 继承那个父类样式 --&gt;</span><br><span class="line">        &lt;style name=&quot;theme_fullScreen&quot; parent=&quot;android:Theme.Black&quot;&gt; </span><br><span class="line">            &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;  &lt;!-- 设置无标题 --&gt;</span><br><span class="line">            &lt;item name=&quot;android:windowFullscreen&quot;&gt;?android:windowNoTitle&lt;/item&gt; &lt;!-- 是否填充慢屏幕，引用android:windowNoTitle 的值 --&gt;</span><br><span class="line">   &lt;/style&gt;   </span><br><span class="line"> &lt;/resources&gt;</span><br></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;2、在 AndroidManifest.xml 使用：</p>
